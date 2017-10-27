@@ -142,9 +142,9 @@ def test_is_genesis_block_returns_true_if_genesis(b):
 def test_lazy_execution():
     from bigchaindb.utils import Lazy
 
-    lazy_exec = Lazy()
-    lazy_exec.split(',')[1].split(' ').pop(1).strip()
-    result = lazy_exec.run('Like humans, cats tend to favor one paw over another')
+    l = Lazy()
+    l.split(',')[1].split(' ').pop(1).strip()
+    result = l.run('Like humans, cats tend to favor one paw over another')
     assert result == 'cats'
 
     class Cat:
@@ -153,7 +153,7 @@ def test_lazy_execution():
 
     cat = Cat('Shmui')
 
-    lazy_exec = Lazy()
-    lazy_exec.name.upper()
-    result = lazy_exec.run(cat)
+    l = Lazy()
+    l.name.upper()
+    result = l.run(cat)
     assert result == 'SHMUI'
